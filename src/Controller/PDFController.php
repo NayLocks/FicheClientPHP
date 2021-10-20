@@ -74,8 +74,8 @@ class PDFController extends AbstractController
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
         $output = $dompdf->output();
-        $pdfFilepath =  $test['codeFiche'].'_'.$test[0]['nomAppel'].'.pdf';
-        $path =  $test['codeFiche'].'_'.$test[0]['nomAppel'].'.pdf';
+        $pdfFilepath =  $test[0]['codeFiche'].'_'.$test[0]['nomAppel'].'.pdf';
+        $path =  $test[0]['codeFiche'].'_'.$test[0]['nomAppel'].'.pdf';
         file_put_contents($pdfFilepath, $output);
 
         return $this->redirect('/'.$pdfFilepath);
