@@ -15,7 +15,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class PDFController extends AbstractController
 {
     /**
-     * @Route("/", name="dashboard")
+     * @Route("/test", name="dashboard")
      */
     public function index(Request $request)
     {
@@ -42,9 +42,9 @@ class PDFController extends AbstractController
     }
 
     /**
-     * @Route("/pdf", name="pdf")
+     * @Route("/{id}", name="pdf")
      */
-    public function pdf(Request $request)
+    public function pdf(Request $request, $id)
     {
         $host = '192.168.1.249';
         $dbname = 'fiche_client';
@@ -62,7 +62,7 @@ class PDFController extends AbstractController
 
         }
 
-        $test = $conn->query('SELECT * FROM fiche_client WHERE id = 65');
+        $test = $conn->query('SELECT * FROM fiche_client WHERE id = '.$id);
         $test = $test->fetchAll();
 
         $pdfOptions = new Options();
@@ -74,9 +74,11 @@ class PDFController extends AbstractController
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
         $output = $dompdf->output();
-        $pdfFilepath =  'test.pdf';
-        $path =  'test.pdf';
+        $pdfFilepath =  $test['codeFiche'].'_'.$test[0]['nomAppel'].'.pdf';
+        $path =  $test['codeFiche'].'_'.$test[0]['nomAppel'].'.pdf';
         file_put_contents($pdfFilepath, $output);
+
+        return $this->redirect('/'.$pdfFilepath);
     }
 }
 
