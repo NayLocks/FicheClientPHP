@@ -35,7 +35,7 @@ class PDFController extends AbstractController
 
         }
 
-        $test = $conn->query('SELECT * FROM fiche_client WHERE id = 65');
+        $test = $conn->query('SELECT * FROM fiche_client WHERE id = 1');
         $test = $test->fetchAll();
 
         return $this->render('GenPDF.html.twig', ['fiche' => $test[0]]);
