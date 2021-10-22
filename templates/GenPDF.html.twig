@@ -71,8 +71,8 @@
     <div id="header">
         <table style="text-align: center; ;font-size: 7px">
             <tr>
-{#                                <td rowspan="4"><img src="{{ asset("img/logo.png") }}" width="15%"/></td>#}
-                <td rowspan="4"><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('img/logo.png') }}" width="20%" alt="logo"></td>
+                                <td rowspan="4"><img src="{{ asset("img/logo.png") }}" width="15%"/></td>
+{#                <td rowspan="4"><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('img/logo.png') }}" width="20%" alt="logo"></td>#}
                 <td>Date Création</td>
                 <td>06/01/2015</td>
                 <td></td>
@@ -381,34 +381,21 @@
                 <td colspan="8"><strong>PARTIE A RENSEIGNER PAR LA COMPTABILITE</strong></td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Catégorie Client</strong></td>
-                <td colspan="3" class="gray">{{ fiche.catClient }}</td>
-                <td><strong>Délais de Règlement</strong></td>
-                <td colspan="2" class="gray">{{ fiche.delais_reg }}</td>
-            </tr>
-            <tr>
                 <td><strong>Minimum Livraison</strong></td>
                 <td style="text-align: right">Limite Frais</td>
                 <td class="gray">{{ fiche.min_liv }}</td>
                 <td style="text-align: right">Montant</td>
                 <td class="gray">{{ fiche.mon_liv }}</td>
-                <td><strong>Blocage Compte</strong></td>
-                <td><input type="checkbox" {% if fiche.bloc_compte == 1 %}checked{% endif %} name="blocCompteOui"/><label for="blocCompteOui"><strong>Oui</strong></label></td>
-                <td><input type="checkbox" {% if fiche.bloc_compte == 0 %}checked{% endif %} name="blocCompteOui"/><label for="blocCompteNon"><strong>Non</strong></label></td>
-            </tr>
-            <tr>
-                <td colspan="2"><strong>Nombre Exemplaire Factures</strong></td>
-                <td class="gray">{{ fiche.nb_fac }}</td>
-                <td></td>
-                <td><strong>Fréquence des Relevés</strong></td>
-                <td><input type="checkbox" {% if fiche.freq_rev_hebdo == 1 %}checked{% endif %} name="hebdo"/><label for="hebdo"><strong>Hebdo</strong></label></td>
-                <td><input type="checkbox" {% if fiche.freq_rev_decade == 1 %}checked{% endif %} name="decade"/><label for="decade"><strong>Decade</strong></label></td>
-                <td><input type="checkbox" {% if fiche.freq_rev_mois == 1 %}checked{% endif %} name="mois"/><label for="mois"><strong>Mois</strong></label></td>
+                <td><strong>Délais de Règlement</strong></td>
+                <td colspan="2" class="gray">{{ fiche.delais_reg }}</td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Frais de Développement Durable</strong></td>
                 <td><input type="checkbox" {% if fiche.frais_dev == 1 %}checked{% endif %} name="090"/><label for="090"><strong>0,90 €</strong></label></td>
                 <td><input type="checkbox" {% if fiche.frais_dev == 0 %}checked{% endif %} name="150"/><label for="150"><strong>1,50 €</strong></label></td>
+                <td><strong>Blocage Compte</strong></td>
+                <td><input type="checkbox" {% if fiche.bloc_compte == 1 %}checked{% endif %} name="blocCompteOui"/><label for="blocCompteOui"><strong>Oui</strong></label></td>
+                <td><input type="checkbox" {% if fiche.bloc_compte == 0 %}checked{% endif %} name="blocCompteOui"/><label for="blocCompteNon"><strong>Non</strong></label></td>
             </tr>
         </table>
     </div>
