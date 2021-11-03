@@ -74,10 +74,10 @@
     <div id="header">
         <table style="text-align: center; ;font-size: 7px">
             <tr>
-                                <td rowspan="4"><img src="{{ asset("img/logo.png") }}" width="15%"/></td>
-{#                <td rowspan="4"><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('img/logo.png') }}" width="20%" alt="logo"></td>#}
+                                {#<td rowspan="4"><img src="{{ asset("img/ribegroupe.jpg") }}" width="15%"/></td>#}
+                <td rowspan="4"><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('img/lribegroupe.jpg') }}" width="20%" alt="logo"></td>
                 <td>Date Création</td>
-                <td>06/01/2015</td>
+                <td>02/11/2021</td>
                 <td></td>
             </tr>
             <tr>
@@ -133,24 +133,24 @@
             </tr>
             <tr>
                 <td class="black">Comptes à créer</td>
-                <td><input type="checkbox" {% if fiche.compteFL == 1 %}checked{% endif %} name="fl"/><label for="fl">Fruits & Légumes</label></td>
-                <td><input type="checkbox" {% if fiche.compte45G == 1 %}checked{% endif %} name="45g"/><label for="45g">4/5G</label></td>
-                <td><input type="checkbox" {% if fiche.compteMaree == 1 %}checked{% endif %}="maree"/><label for="maree">Marée</label></td>
-                <td colspan="3"><input type="checkbox" {% if fiche.compteCremerie == 1 %}checked{% endif %}="cremerie"/><label for="cremerie">BOF / Charcuterie / Volaille</label></td>
+                <td><input type="checkbox" {% if fiche.compteFL == 1 %}chk{% endif %} name="fl"/><label for="fl">Fruits & Légumes</label></td>
+                <td><input type="checkbox" {% if fiche.compte45G == 1 %}chk{% endif %} name="45g"/><label for="45g">4/5G</label></td>
+                <td><input type="checkbox" {% if fiche.compteMaree == 1 %}chk{% endif %}="maree"/><label for="maree">Marée</label></td>
+                <td colspan="3"><input type="checkbox" {% if fiche.compteCremerie == 1 %}chk{% endif %}="cremerie"/><label for="cremerie">BOF / Charcuterie / Volaille</label></td>
             </tr>
             <tr>
                 <td class="black">Nom Appel du Client</td>
                 <td colspan="2" class="gray">{{ fiche.nomAppel }}</td>
                 <td class="black">Téléphone Standard</td>
                 <td colspan="2" class="gray">{{ fiche.telStandard }}</td>
-                <td><input type="checkbox" {% if fiche.tel_type_televente == 1 %}checked{% endif %} name="tel"/><label for="tel">Type Télévente</label></td>
+                <td><input type="checkbox" {% if fiche.tel_type_televente == 1 %}chk{% endif %} name="tel"/><label for="tel">Type Télévente</label></td>
             </tr>
             <tr>
                 <td class="black">Code Gestion</td>
                 <td colspan="2" class="gray">{{ fiche.codeGestion }}</td>
                 <td class="black">Portable</td>
                 <td colspan="2" class="gray">{{ fiche.port_standard }}</td>
-                <td><input type="checkbox" {% if fiche.port_type_televente == 1 %}checked{% endif %} name="port"/><label for="port">Type Télévente</label></td>
+                <td><input type="checkbox" {% if fiche.port_type_televente == 1 %}chk{% endif %} name="port"/><label for="port">Type Télévente</label></td>
             </tr>
             <tr>
                 <td class="black">Raison Sociale</td>
@@ -163,8 +163,8 @@
                 <td class="black">Adresse Livraison</td>
                 <td colspan="2" class="gray">{{ fiche.adresseLivraison }}</td>
                 <td class="black">Client à appeler</td>
-                <td><input type="checkbox" {% if fiche.clientAppel == 1 %}checked{% endif %} name="clientOui"/><label for="clientOui">Oui</label></td>
-                <td><input type="checkbox" {% if fiche.clientAppel == 0 %}checked{% endif %} name="clientNon"/><label for="clientNon">Non</label></td>
+                <td><input type="checkbox" {% if fiche.clientAppel == 1 %}chk{% endif %} name="clientOui"/><label for="clientOui">Oui</label></td>
+                <td><input type="checkbox" {% if fiche.clientAppel == 0 %}chk{% endif %} name="clientNon"/><label for="clientNon">Non</label></td>
                 <td></td>
             </tr>
             <tr>
@@ -178,7 +178,7 @@
                 <td class="black">N° SIRET</td>
                 <td colspan="2" class="gray">{{ fiche.siret }}</td>
                 <td></td>
-                <td><input type="checkbox" {% if fiche.appelLundi == 1 %}checked{% endif %} name="lundi"/><label for="public">Lundi</label></td>
+                <td><input type="checkbox" {% if fiche.appelLundi == 1 %}chk{% endif %} name="lundi"/><label for="public">Lundi</label></td>
                 <td></td>
                 <td colspan="2" class="gray" style="text-align: center">{{ fiche.horaireAppel1 }}</td>
             </tr>
@@ -186,22 +186,22 @@
                 <td class="black">N° TVA intercommunautaire</td>
                 <td colspan="2" class="gray">{{ fiche.tvainter }}</td>
                 <td></td>
-                <td><input type="checkbox" {% if fiche.appelMardi == 1 %}checked{% endif %} name="mardi"/><label for="public">Mardi</label></td>
+                <td><input type="checkbox" {% if fiche.appelMardi == 1 %}chk{% endif %} name="mardi"/><label for="public">Mardi</label></td>
                 <td></td>
                 <td colspan="2" class="gray" style="text-align: center">{{ fiche.horaireAppel2 }}</td>
             </tr>
             <tr>
                 <td class="black">Type Client</td>
-                <td><input type="checkbox" {% if fiche.typeClient == 1 %}checked{% endif %} name="public"/><label for="public">Public</label></td>
-                <td><input type="checkbox" {% if fiche.typeClient == 0 %}checked{% endif %} name="prive"/><label for="prive">Privé</label></td>
+                <td><input type="checkbox" {% if fiche.typeClient == 1 %}chk{% endif %} name="public"/><label for="public">Public</label></td>
+                <td><input type="checkbox" {% if fiche.typeClient == 0 %}chk{% endif %} name="prive"/><label for="prive">Privé</label></td>
                 <td></td>
-                <td><input type="checkbox" {% if fiche.appelMercredi  == 1 %}checked{% endif %} name="mercredi"/><label for="public">Mercredi</label></td>
+                <td><input type="checkbox" {% if fiche.appelMercredi  == 1 %}chk{% endif %} name="mercredi"/><label for="public">Mercredi</label></td>
                 <td></td>
                 <td colspan="2" class="gray" style="text-align: center">{{ fiche.horaireAppel3 }}</td>
             </tr>
             <tr>
                 <td colspan="4">Si client public (= chorus), compléter impérativement les champs suivants :  n° SIRET,  n° engagement et code service</td>
-                <td><input type="checkbox" {% if fiche.appelJeudi  == 1 %}checked{% endif %} name="jeudi"/><label for="public">Jeudi</label></td>
+                <td><input type="checkbox" {% if fiche.appelJeudi  == 1 %}chk{% endif %} name="jeudi"/><label for="public">Jeudi</label></td>
                 <td></td>
                 <td colspan="2" class="gray" style="text-align: center">{{ fiche.horaireAppel4 }}</td>
             </tr>
@@ -209,7 +209,7 @@
                 <td class="black">N° Engagement</td>
                 <td colspan="2" class="gray">{{ fiche.engagement }}</td>
                 <td></td>
-                <td><input type="checkbox" {% if fiche.appelVendredi == 1 %}checked{% endif %} name="jeudi"/><label for="public">Vendredi</label></td>
+                <td><input type="checkbox" {% if fiche.appelVendredi == 1 %}chk{% endif %} name="jeudi"/><label for="public">Vendredi</label></td>
                 <td></td>
                 <td colspan="2" class="gray" style="text-align: center">{{ fiche.horaireAppel5 }}</td>
             </tr>
@@ -217,7 +217,7 @@
                 <td class="black">Code Service</td>
                 <td colspan="2" class="gray">{{ fiche.codeService }}</td>
                 <td></td>
-                <td><input type="checkbox" {% if fiche.appelSamedi  == 1 %}checked{% endif %} name="jeudi"/><label for="public">Samedi</label></td>
+                <td><input type="checkbox" {% if fiche.appelSamedi  == 1 %}chk{% endif %} name="jeudi"/><label for="public">Samedi</label></td>
                 <td></td>
                 <td colspan="2" class="gray" style="text-align: center">{{ fiche.horaireAppel6 }}</td>
             </tr>
@@ -237,8 +237,8 @@
                 <td class="black">AFFTYPO CHAMP STAT 2</td>
                 <td colspan="2" class="gray">{{ fiche.stat2 }}</td>
                 <td class="black">Envoi Tarif Auto</td>
-                <td><input type="checkbox" {% if fiche.envoiTarifAuto == 1 %}checked{% endif %} name="envoiTarifOui"/><label for="envoiTarifOui">Oui</label></td>
-                <td><input type="checkbox" {% if fiche.envoiTarifAuto == 0 %}checked{% endif %} name="envoiTarifNon"/><label for="envoiTarifNon">Non</label></td>
+                <td><input type="checkbox" {% if fiche.envoiTarifAuto == 1 %}chk{% endif %} name="envoiTarifOui"/><label for="envoiTarifOui">Oui</label></td>
+                <td><input type="checkbox" {% if fiche.envoiTarifAuto == 0 %}chk{% endif %} name="envoiTarifNon"/><label for="envoiTarifNon">Non</label></td>
                 <td></td>
             </tr>
             <tr>
@@ -251,8 +251,8 @@
                 <td class="black">AFFTYPO CHAMP STAT 4</td>
                 <td colspan="2" class="gray">{{ fiche.stat4 }}</td>
                 <td class="black">PVC</td>
-                <td><input type="checkbox" {% if fiche.pvc == 1 %}checked{% endif %} name="pvcOui"/><label for="pvcOui">Oui</label></td>
-                <td><input type="checkbox" {% if fiche.pvc == 0 %}checked{% endif %} name="pvcNon"/><label for="pvcNon">Non</label></td>
+                <td><input type="checkbox" {% if fiche.pvc == 1 %}chk{% endif %} name="pvcOui"/><label for="pvcOui">Oui</label></td>
+                <td><input type="checkbox" {% if fiche.pvc == 0 %}chk{% endif %} name="pvcNon"/><label for="pvcNon">Non</label></td>
             </tr>
             <tr>
                 <td class="black">AFFTYPO CHAMP STAT 5</td>
@@ -264,10 +264,10 @@
                 <td class="black" colspan="3">Mode de Règlement/ * Joindre Courrier Acceptation</td>
             </tr>
             <tr>
-                <td><input type="checkbox" {% if fiche.regAvance == 1 %}checked{% endif %} name="public"/><label for="public">Avance</label></td>
-                <td colspan="2"><input type="checkbox" {% if fiche.regVirement == 1 %}checked{% endif %} name="public"/><label for="public">Virement</label></td>
-                <td><input type="checkbox" {% if fiche.regCheque == 1 %}checked{% endif %} name="public"/><label for="public">Chèque Bancaire</label></td>
-                <td colspan="2"><input type="checkbox" {% if fiche.regPrelevement == 1 %}checked{% endif %} name="public"/><label for="public">* Prélèvement</label></td>
+                <td><input type="checkbox" {% if fiche.regAvance == 1 %}chk{% endif %} name="public"/><label for="public">Avance</label></td>
+                <td colspan="2"><input type="checkbox" {% if fiche.regVirement == 1 %}chk{% endif %} name="public"/><label for="public">Virement</label></td>
+                <td><input type="checkbox" {% if fiche.regCheque == 1 %}chk{% endif %} name="public"/><label for="public">Chèque Bancaire</label></td>
+                <td colspan="2"><input type="checkbox" {% if fiche.regPrelevement == 1 %}chk{% endif %} name="public"/><label for="public">* Prélèvement</label></td>
             </tr>
             <tr style="text-align: center;font-size: 9px">
                 <td class="black" colspan="7" style="border: 1px solid black">CONTACTS</td>
@@ -417,11 +417,11 @@
             </tr>
             <tr>
                 <td class="black" colspan="2">Frais de Développement Durable</td>
-                <td><input type="checkbox" {% if fiche.frais_dev == 1 %}checked{% endif %} name="090"/><label for="090">0,90 €</label></td>
-                <td><input type="checkbox" {% if fiche.frais_dev == 0 %}checked{% endif %} name="150"/><label for="150">1,50 €</label></td>
+                <td><input type="checkbox" {% if fiche.frais_dev == 1 %}chk{% endif %} name="090"/><label for="090">0,90 €</label></td>
+                <td><input type="checkbox" {% if fiche.frais_dev == 0 %}chk{% endif %} name="150"/><label for="150">1,50 €</label></td>
                 <td class="black">Blocage Compte</td>
-                <td><input type="checkbox" {% if fiche.bloc_compte == 1 %}checked{% endif %} name="blocCompteOui"/><label for="blocCompteOui">Oui</label></td>
-                <td><input type="checkbox" {% if fiche.bloc_compte == 0 %}checked{% endif %} name="blocCompteOui"/><label for="blocCompteNon">Non</label></td>
+                <td><input type="checkbox" {% if fiche.bloc_compte == 1 %}chk{% endif %} name="blocCompteOui"/><label for="blocCompteOui">Oui</label></td>
+                <td><input type="checkbox" {% if fiche.bloc_compte == 0 %}chk{% endif %} name="blocCompteOui"/><label for="blocCompteNon">Non</label></td>
             </tr>
         </table>
     </div>
