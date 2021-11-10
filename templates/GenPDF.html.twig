@@ -82,8 +82,8 @@
     <div id="header">
         <table style="text-align: center; ;font-size: 7px">
             <tr>
-           {# <td rowspan="4"><img src="{{ asset("img/ribegroupe.png") }}" width="15%"/></td>#}
-          <td rowspan="4"><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('img/ribegroupe.png') }}" width="25%" alt="logo"></td>
+            <td rowspan="4"><img src="{{ asset("img/ribegroupe.png") }}" width="15%"/></td>
+          {#<td rowspan="4"><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('img/ribegroupe.png') }}" width="25%" alt="logo"></td>#}
                 <td>Date Création</td>
                 <td>06/01/2015</td>
                 <td></td>
@@ -136,8 +136,6 @@
             <tr>
                 <td class="black">SITE</td>
                 <td colspan="2" class="gray">{{ fiche.societe }}</td>
-                <td class="black">Email Standard</td>
-                <td class="gray" colspan="3">{{ fiche.emailStandard }}</td>
             </tr>
             <tr>
                 <td class="black">Comptes à créer</td>
@@ -163,9 +161,13 @@
             <tr>
                 <td class="black">Raison Sociale</td>
                 <td colspan="2" class="gray">{{ fiche.raisonSociale }}</td>
-                <td class="black">Fax Standard</td>
-                <td colspan="2" class="gray">{{ fiche.faxStandard }}</td>
                 <td></td>
+            </tr>
+            <tr>
+                <td class="black">Nom Grand Compte</td>
+                <td colspan="2" class="gray">{{ fiche.nomGrandCompte }}</td>
+                <td class="black">Email Standard</td>
+                <td class="gray" colspan="3">{{ fiche.emailStandard }}</td>
             </tr>
             <tr>
                 <td class="black">Adresse Livraison</td>
@@ -281,7 +283,7 @@
                 <td class="black" colspan="7" style="border: 1px solid black">CONTACTS</td>
             </tr>
             <tr>
-                <td class="black" colspan="7">Dirigieant</td>
+                <td class="black" colspan="8">Dirigieant</td>
             </tr>
             <tr>
                 <td class="black" style="text-align: right">Nom</td>
@@ -289,10 +291,10 @@
                 <td class="black" style="text-align: right">Tél</td>
                 <td class="gray">{{ fiche.ct_dir_tel }}</td>
                 <td class="black" style="text-align: right">Mail</td>
-                <td class="gray">{{ fiche.ct_dir_mail }}</td>
+                <td class="gray" colspan="2">{{ fiche.ct_dir_mail }}</td>
             </tr>
             <tr>
-                <td class="black" colspan="7">Comtpa Règlement</td>
+                <td class="black" colspan="8">Comtpa Règlement</td>
             </tr>
             <tr>
                 <td class="black" style="text-align: right">Nom</td>
@@ -300,10 +302,10 @@
                 <td class="black" style="text-align: right">Tél</td>
                 <td class="gray">{{ fiche.ct_compta_tel }}</td>
                 <td class="black" style="text-align: right">Mail</td>
-                <td class="gray">{{ fiche.ct_compta_mail }}</td>
+                <td class="gray" colspan="2">{{ fiche.ct_compta_mail }}</td>
             </tr>
             <tr>
-                <td class="black" colspan="7">Responsable Commandes</td>
+                <td class="black" colspan="8">Responsable Commandes</td>
             </tr>
             <tr>
                 <td class="black" style="text-align: right">Nom</td>
@@ -311,10 +313,10 @@
                 <td class="black" style="text-align: right">Tél</td>
                 <td class="gray">{{ fiche.ct_com_tel }}</td>
                 <td class="black" style="text-align: right">Mail</td>
-                <td class="gray">{{ fiche.ct_com_mail }}</td>
+                <td class="gray" colspan="2">{{ fiche.ct_com_mail }}</td>
             </tr>
             <tr>
-                <td class="black" colspan="7">Responsable Qualité</td>
+                <td class="black" colspan="8">Responsable Qualité</td>
             </tr>
             <tr>
                 <td class="black" style="text-align: right">Nom</td>
@@ -322,7 +324,7 @@
                 <td class="black" style="text-align: right">Tél</td>
                 <td class="gray">{{ fiche.ct_qua_tel }}</td>
                 <td class="black" style="text-align: right">Mail</td>
-                <td class="gray">{{ fiche.ct_qua_mail }}</td>
+                <td class="gray" colspan="2">{{ fiche.ct_qua_mail }}</td>
             </tr>
         </table>
         <table width="90%" style="border: 1px solid black">
