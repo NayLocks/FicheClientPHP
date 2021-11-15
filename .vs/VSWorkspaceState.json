@@ -2,11 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\public",
-    "\\public\\FONT",
     "\\public\\img",
     "\\src",
     "\\src\\Controller",
     "\\templates"
   ],
+  "SelectedNode": "\\public\\FONT",
   "PreviewInSolutionExplorer": false
 }
