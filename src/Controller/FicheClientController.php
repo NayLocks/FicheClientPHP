@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use Dompdf\Dompdf;
-use Dompdf\Options;
 use PDO;
 use PDOException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,10 +10,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 
-class PDFController extends AbstractController
+class FicheClientController extends AbstractController
 {
     /**
-     * @Route("/test", name="test")
+     * @Route("/", name="dashboard")
      */
     public function index(Request $request)
     {
@@ -35,16 +33,16 @@ class PDFController extends AbstractController
 
         }
 
-        $test = $conn->query('SELECT * FROM fiche_client WHERE id = 1');
-        $test = $test->fetchAll();
+        $allFiches = $conn->query('SELECT * FROM fiche_client ORDER BY societe, validType ASC');
+        $fiches = $allFiches->fetchAll();
 
-        return $this->render('GenPDF.html.twig', ['fiche' => $test[0]]);
+        return $this->render('index.html.twig', ['allFiches' => $fiches]);
     }
 
     /**
-     * @Route("/{id}", name="pdf")
+     * @Route("/index/{id}", name="indexId")
      */
-    public function pdf(Request $request, $id)
+    public function fiche_client(Request $request, $id)
     {
         $host = '192.168.1.249';
         $dbname = 'fiche_client';
@@ -62,23 +60,10 @@ class PDFController extends AbstractController
 
         }
 
-        $test = $conn->query('SELECT * FROM fiche_client WHERE id = '.$id);
-        $test = $test->fetchAll();
+        $allFiches = $conn->query('SELECT * FROM fiche_client WHERE id = '.$id);
+        $fiche = $allFiches->fetchAll();
 
-        $pdfOptions = new Options();
-        $pdfOptions->set('isHtml5ParserEnabled', 'true');
-        $pdfOptions->set('enable_remote', true);
-        $dompdf = new Dompdf($pdfOptions);
-        $html = $this->renderView('GenPDF.html.twig', ['fiche' => $test[0]]);
-        $dompdf->loadHtml($html);
-        $dompdf->setPaper('A4', 'portrait');
-        $dompdf->render();
-        $output = $dompdf->output();
-        $pdfFilepath =  $test[0]['codeFiche'].'_'.$test[0]['nomAppel'].'.pdf';
-        $path =  $test[0]['codeFiche'].'_'.$test[0]['nomAppel'].'.pdf';
-        file_put_contents($pdfFilepath, $output);
-
-        return $this->redirect('/'.$pdfFilepath);
+        return $this->render('fiche_client.html.twig', ['fiche' => $fiche[0]]);
     }
 }
 
