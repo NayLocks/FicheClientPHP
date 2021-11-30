@@ -80,5 +80,39 @@ class PDFController extends AbstractController
 
         return $this->redirect('/'.$pdfFilepath);
     }
+
+    /**
+     * @Route("/article/{id}", name="pdfArticle")
+     */
+    public function pdfArticle(Request $request, $id)
+    {
+        try
+        {
+            $connexion_bdd = new PDO('sqlsrv:Server=192.168.1.233;Database=RIBEGROUPE', 'sa', '3Ribegroupe19!');
+            $connexion_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $allFiches = $connexion_bdd->query('SELECT * FROM fiche_article WHERE id = '.$id);
+            $fiche = $allFiches->fetchAll();
+
+        }
+        catch(Exception $e)
+        {
+            echo("Error!");
+        }
+
+        $pdfOptions = new Options();
+        $pdfOptions->set('isHtml5ParserEnabled', 'true');
+        $pdfOptions->set('enable_remote', true);
+        $dompdf = new Dompdf($pdfOptions);
+        $html = $this->renderView('Articles/PDF_Article.html.twig', ['fiche' => $fiche[0]]);
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        $output = $dompdf->output();
+        $pdfFilepath =  $fiche[0]['codeFiche'].'_'.$fiche[0]['generique'].'.pdf';
+        $path =  $fiche[0]['codeFiche'].'_'.$fiche[0]['generique'].'.pdf';
+        file_put_contents($pdfFilepath, $output);
+
+        return $this->redirect('/'.$pdfFilepath);
+    }
 }
 

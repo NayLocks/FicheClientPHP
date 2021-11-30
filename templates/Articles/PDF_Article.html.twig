@@ -1,0 +1,231 @@
+{% set nbSection = 1 %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <style type="text/css">
+
+        body {
+            font-family: 'arial';
+            margin: 0.5cm 0;
+            color: #6D6F71;
+        }
+
+        #header{
+            position: relative;
+            top: -30px;
+            left: 0;
+            right: 0;
+        }
+
+        #footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            font-size: 0.9em;
+        }
+
+        #footer {
+            bottom: 60px;
+        }
+
+        #header table,
+        #footer table {
+            width: 90%;
+            border-collapse: collapse;
+            border: none;
+        }
+
+        #header td,
+        #footer td {
+            padding: 0;
+            width: 50%;
+        }
+
+        .page-number {
+            text-align: right;
+        }
+
+        .page-number:before {
+            content: "Page " counter(page);
+        }
+
+        hr {
+            page-break-after: always;
+            border: 0;
+        }
+        .colorSystem{
+            color: #1F497D;
+        }
+
+        tr {
+            border: 1px solid black
+        }
+        .gray{
+            background-color: lightgray;
+            color: black;
+            font-weight: bold;
+        }
+        .black{
+            
+        }
+
+        .colorVERT{
+            background-color: #70C057;
+        }
+
+    </style>
+</head>
+
+<body style="font-size: 15px;">
+<div class="section section1">
+    <div id="header">
+        <table style="text-align: center;">
+            <tr>
+           {# <td rowspan="4"><img src="{{ asset("img/ribegroupe.png") }}" width="15%"/></td>#}
+          <td rowspan="4"><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('img/ribegroupe.png') }}" width="25%" alt="logo"></td>
+                <td>Date Création</td>
+                <td>30/10/2017</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Date Version</td>
+                <td>01/12/2021</td>
+                <td>FE 58</td>
+            </tr>
+            <tr>
+                <td>Page</td>
+                <td>01/1</td>
+                <td>FICHE CREATION ARTICLE</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div>
+        <table width="100%" style="border: 2px solid black;">
+            <tr>
+                <td class="black">Générique</td>
+                <td class="gray">{{ fiche.generique }}</td>
+            </tr>
+            <tr>
+                <td class="black">Espèce / Variété</td>
+                <td class="gray" >{{ fiche.esp_var }}</td>
+            </tr>
+            <tr>
+                <td class="black">Marque</td>
+                <td class="gray">{{ fiche.marque }}</td>
+            </tr>
+            <tr>
+                <td class="black">Origine</td>
+                <td class="gray">{{ fiche.origine }}</td>
+            </tr>
+            <tr>
+                <td class="black">Conditionnement</td>
+                <td class="gray">{{ fiche.conditionnement }}</td>
+            </tr>
+            <tr>
+                <td class="black">Catégorie</td>
+                <td class="gray">{{ fiche.categorie }}</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table width="100%" style="border: 2px solid black;">
+            <tr>
+                <td class="black"><strong>Gamme</strong></td>
+            </tr>
+            <tr>
+                <td class="black">Famille Semmaris</td>
+                <td class="gray">{{ fiche.semmaris }}</td>
+                <td class="black">Groupe Article</td>
+                <td class="gray">{{ fiche.grp_article }}</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table width="100%" style="border: 2px solid black;">
+            <tr>
+                <td class="black"><strong>Spécificité Marée</strong></td>
+            </tr>
+            <tr>
+                <td class="black">Nom Latin</td>
+                <td class="gray">{{ fiche.ma_nom_latin }}</td>
+            </tr>
+            <tr>
+                <td class="black">Zone de Pêche</td>
+                <td class="gray">{{ fiche.ma_zone_peche }}</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table width="100%" style="border: 2px solid black;">
+            <tr>
+                <td class="black">Poids du colis</td>
+                <td class="gray">{{ fiche.kg_col }}</td>
+                <td class="black" style="text-align: right;">STAT 1</td>
+                <td class="gray">{{ fiche.stat1 }}</td>
+            </tr>
+            <tr>
+                <td class="black">Variable</td>
+                <td class="gray">{% if fiche.kg_col_on == 1 %}OUI{%else%}NON{% endif %}</td>
+                <td class="black" style="text-align: right;">STAT 2</td>
+                <td class="gray">{{ fiche.stat2 }}</td>
+            </tr>
+            <tr>
+                <td class="black">Pièces du colis</td>
+                <td class="gray">{{ fiche.p_col }}</td>
+                <td class="black" style="text-align: right;">STAT 3</td>
+                <td class="gray">{{ fiche.stat3 }}</td>
+            </tr>
+            <tr>
+                <td class="black">Varaible</td>
+                <td class="gray">{% if fiche.p_col_on == 1 %}OUI{%else%}NON{% endif %}</td>
+                <td class="black" style="text-align: right;">STAT 4</td>
+                <td class="gray">{{ fiche.stat4 }}</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table width="100%" style="border: 2px solid black;">
+            <tr>
+                <td class="black">DLC</td>
+                <td class="gray">{% if fiche.dlc_on == 1 %}OUI{%else%}NON{% endif %}</td>
+                <td class="black" style="text-align: right;">Mention Valorisante</td>
+                <td class="gray">{{ fiche.men_val }}</td>
+            </tr>
+            <tr>
+                <td class="black">Si OUI, DLC Départ Usine</td>
+                <td class="gray">{{ fiche.dlc_date|date("d/m/Y") }}</td>
+                <td class="black" style="text-align: right;">Localisation</td>
+                <td class="gray">{{ fiche.localisation }}</td>
+            </tr>
+            <tr>
+                <td class="black">Unité d'Achat courante</td>
+                <td class="gray">{{ fiche.unite_achat }}</td>
+                <td class="black" style="text-align: right;">RUP</td>
+                <td class="gray">{{ fiche.rup }}</td>
+            </tr>
+            <tr>
+                <td class="black">Unité Vente courante</td>
+                <td class="gray">{{ fiche.unite_vente }}</td>
+                <td class="black" style="text-align: right;">SIQO</td>
+                <td class="gray">{{ fiche.siqo }}</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table width="100%" style="border: 2px solid black;">
+            <tr>
+                <td class="black">Demandeur</td>
+                <td class="gray">{{ fiche.name }}</td>
+            </tr>
+            <tr>
+                <td class="black">Date</td>
+                <td class="gray">{{ fiche.date|date('m/d/Y') }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

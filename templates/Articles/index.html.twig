@@ -1,0 +1,57 @@
+  <!DOCTYPE html>
+
+  <html>
+    <head>
+      <title>RG : Fiches Article</title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.min.css') }}"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+
+
+  <nav>
+    <div class="nav-wrapper" style="background-color: #70C057">
+      <a href="{{ path('dashboard') }}"" class="brand-logo">RibéGroupe : Fiches Clients</a>
+    </div>
+  </nav>
+        
+      <table>
+        <thead>
+          <tr>
+              <th>ID</th>
+              <th>CODE FICHE</th>
+              <th>SOCIETE</th>
+              <th>ETAT</th>
+              <th>GENERIQUE</th>
+              <th>FAMILLE SEMMARIS</th>
+              <th>GROUPE ARTICLE</th>
+              <th>ACTION</th>
+          </tr>
+        </thead>
+
+        <tbody>
+      {% for fiche in allFiches %}
+          <tr style="background-color: {{ fiche.color }}">
+            <td>{{ fiche.id }}</td>
+            <td>{{ fiche.codeFiche }}</td>
+            <td>{{ fiche.societe }}</td>
+            <td>{{ fiche.etapeFiche }}</td>
+            <td>{{ fiche.generique }}</td>
+            <td>{{ fiche.semmaris }}</td>
+            <td>{{ fiche.grp_article }}</td>
+            <td><a class="waves-effect waves-light btn" href="{{ path('indexId',{'id':fiche.id}) }}"><i class="material-icons right">cloud</i>Voir la fiche</a></td>
+          </tr>
+      {% endfor %}
+        </tbody>
+      </table>
+
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+    </body>
+  </html>

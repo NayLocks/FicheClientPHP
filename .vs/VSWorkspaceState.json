@@ -1,11 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
+    "\\config",
+    "\\config\\packages",
+    "\\config\\routes",
     "\\public",
-    "\\public\\img",
+    "\\public\\js",
     "\\src",
     "\\src\\Controller",
     "\\templates"
   ],
+  "SelectedNode": "\\bin\\console",
   "PreviewInSolutionExplorer": false
 }
