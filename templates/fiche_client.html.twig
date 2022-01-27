@@ -377,11 +377,6 @@
             <tr>
                 <td class="black">Date</td>
                 <td class="gray">{{ fiche.dateDirection|date('d/m/Y') }}</td>
-                <td colspan="5"></td>
-            </tr>
-            <tr>
-                <td class="black">Attribution DIRECTION COMMERCIALE</td>
-                <td class="gray">{{ fiche.dir_com }}</td>
                 <td>Services Associés</td>
                 <td class="black">Taux</td>
                 <td class="gray">{{ fiche.taux1 }}</td>
@@ -389,8 +384,8 @@
                 <td class="gray">{{ fiche.nature1 }}</td>
             </tr>
             <tr>
-                <td class="black">Attribution COMMERCIAL MAÎTRE</td>
-                <td class="gray">{{ fiche.com_maitre }}</td>
+                <td class="black">Attribution DIRECTION COMMERCIALE</td>
+                <td class="gray">{{ fiche.dir_com }}</td>
                 <td></td>
                 <td class="black">Taux</td>
                 <td class="gray">{{ fiche.taux2 }}</td>
@@ -398,8 +393,8 @@
                 <td class="gray">{{ fiche.nature2 }}</td>
             </tr>
             <tr>
-                <td class="black">Attribution COMMERCIAL</td>
-                <td class="gray">{{ fiche.com }}</td>
+                <td class="black">Attribution COMMERCIAL MAÎTRE</td>
+                <td class="gray">{{ fiche.com_maitre }}</td>
                 <td></td>
                 <td class="black">Taux</td>
                 <td class="gray">{{ fiche.taux3 }}</td>
@@ -407,9 +402,10 @@
                 <td class="gray">{{ fiche.nature3 }}</td>
             </tr>
             <tr>
+                <td class="black">Attribution COMMERCIAL</td>
+                <td class="gray">{{ fiche.com }}</td>
                 <td class="black">Attribution TELEVENDEUR</td>
-                <td class="gray">{{ fiche.televendeur }}</td>
-                <td colspan="5"></td>
+                <td colspan="2" class="gray">{{ fiche.televendeur }}</td>
             </tr>
         </table>
         <table width="90%" style="border: 1px solid black">
