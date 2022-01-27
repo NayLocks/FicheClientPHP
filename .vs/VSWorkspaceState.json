@@ -2,8 +2,6 @@
   "ExpandedNodes": [
     "",
     "\\bin",
-    "\\config\\packages",
-    "\\config\\routes",
     "\\public",
     "\\public\\js",
     "\\src",
@@ -11,6 +9,5 @@
     "\\templates",
     "\\templates\\Articles"
   ],
-  "SelectedNode": "\\templates\\GenPDF.html.twig",
   "PreviewInSolutionExplorer": false
 }
